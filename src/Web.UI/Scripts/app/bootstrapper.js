@@ -3,7 +3,7 @@
     function ($, binder, router, dataservice) {
         var
             run = function () {
-                $.when(dataservice.getPatientList())
+                $.when(dataservice.primeData())
                     .done(binder.bind)
                     .done(router.registerRoutes);
             };

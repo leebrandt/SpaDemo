@@ -15,9 +15,14 @@
             ],
             registerRoutes = function () {
                 for (var i = 0; i < routes.length; i++) {
-                    sammy.get(routes[i].route, routes[i].callback);
+                    registerRoute(routes[i]);
                 }
                 sammy.run('#/patients');
+            },
+            registerRoute = function (route) {
+                sammy.get(route.route, function (context) {
+                    route.callback(context.params);
+                });
             };
 
         return {

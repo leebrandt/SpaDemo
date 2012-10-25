@@ -129,6 +129,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\binder.js" />
+    <Content Include="Scripts\app\datacontext.js" />
     <Content Include="Scripts\app\dataservice.js" />
     <Content Include="Scripts\app\m.js" />
     <Content Include="Scripts\app\m.patient.js" />
@@ -178,8 +179,8 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
-    <Content Include="Views\Shared\Home\_FirstPage.cshtml" />
-    <Content Include="Views\Shared\Home\_SecondPage.cshtml" />
+    <Content Include="Views\Shared\Home\_PatientList.cshtml" />
+    <Content Include="Views\Shared\Home\_PatientDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

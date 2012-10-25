@@ -1,24 +1,28 @@
 ﻿define('dataservice',
-    ['jquery', 'vm', 'm'],
-    function($, vm, m) {
+    ['jquery', 'm'],
+    function($, m) {
 
         var
-            getPatientList = function () {
-                $.getJSON('/api/patient', null,
-                    function (data) {
-                        var patients = [];
+            patients = [],
+            primeData = function () {
+                $.ajax({
+                    url: '/api/patient',
+                    dataType: 'json',
+                    async: false,
+                    success: function (data) {
                         $.each(data, function (index, value) {
                             var p = new m.Patient();
                             p.id(value.Id);
                             p.name(value.Name);
                             patients.push(p);
                         });
-                        vm.patientList.patients(patients);
-                    });
+                    }
+                });
             };
-
+        
         return {
-            getPatientList: getPatientList
+            primeData: primeData,
+            patients: patients
         };
 
     });

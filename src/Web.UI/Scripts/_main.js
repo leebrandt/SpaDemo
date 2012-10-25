@@ -9,6 +9,7 @@
         define('jquery', [], function () { return root.jQuery; });
         define('sammy', [], function () { return root.Sammy; });
         define('ko', [], function () { return root.ko; });
+        define('underscore', [], function() { return root._; });
     }
 
     function boot() {
