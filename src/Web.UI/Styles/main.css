@@ -1,0 +1,25 @@
+* {
+  padding: 0px;
+  margin: 0px; }
+
+body {
+  background-color: #99ccff;
+  color: #003366; }
+
+div.view {
+  display: none; }
+
+#page {
+  padding: 1em; }
+
+#main-navigation {
+  list-style-type: none; }
+  #main-navigation li {
+    display: inline;
+    background-color: #CCC;
+    padding: .25em; }
+    #main-navigation li:hover {
+      background-color: #003366; }
+      #main-navigation li:hover a {
+        color: #FFF; }
+

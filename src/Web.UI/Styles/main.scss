@@ -1,0 +1,35 @@
+﻿$maincolor: #9CF;
+$accentcolor: #036;
+
+* {
+	padding: 0px; margin: 0px;
+}
+
+body {
+	background-color: $maincolor;
+	color: $accentcolor;
+}
+
+// Hide all views by default
+div.view { display: none; }
+
+#page {
+	padding: 1em;
+}
+#main-navigation {
+	list-style-type: none;
+	li {
+		display: inline;
+		background-color: #CCC;
+		padding: .25em;
+		&:hover {
+			background-color: $accentcolor;
+			a {
+				color: #FFF;
+			}
+		}
+	}
+}
+
+
+
