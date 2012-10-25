@@ -133,13 +133,13 @@
     <Content Include="Scripts\app\m.js" />
     <Content Include="Scripts\app\m.patient.js" />
     <Content Include="Scripts\app\presenter.js" />
-    <Content Include="Scripts\app\vm.first.js" />
+    <Content Include="Scripts\app\vm.patient-list.js" />
     <None Include="Scripts\lib\jquery-1.8.2.intellisense.js" />
     <Content Include="Require.JS - LICENSE.txt" />
     <Content Include="Scripts\app\bootstrapper.js" />
     <Content Include="Scripts\app\router.js" />
     <Content Include="Scripts\app\vm.js" />
-    <Content Include="Scripts\app\vm.second.js" />
+    <Content Include="Scripts\app\vm.patient-detail.js" />
     <Content Include="Scripts\_main.js" />
     <Content Include="Scripts\lib\cs.js" />
     <Content Include="Scripts\lib\domReady.js" />

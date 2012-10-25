@@ -13,22 +13,12 @@
                             p.name(value.Name);
                             patients.push(p);
                         });
-                        vm.first.patients(patients);
-                    });
-            },
-            getPatientById = function (id) {
-                $.getJSON('/api/patient/' + id, null,
-                    function (data) {
-                        var p = new m.Patient();
-                        p.id(data.Id);
-                        p.name(data.Name);
-                        return p;
+                        vm.patientList.patients(patients);
                     });
             };
 
         return {
-            getPatientList: getPatientList,
-            getPatientById: getPatientById
+            getPatientList: getPatientList
         };
 
     });

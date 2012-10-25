@@ -1,8 +1,8 @@
 ﻿define('vm',
-    ['vm.first', 'vm.second'],
-    function (first, second) {
+    ['vm.patient-list', 'vm.patient-detail'],
+    function (patientList, patientDetail) {
         return {
-            first: first,
-            second: second
+            patientList: patientList,
+            patientDetail: patientDetail
         };
 });

@@ -6,11 +6,11 @@
             routes = [
                 {
                     route: '#/patients',
-                    callback: vm.first.activate
+                    callback: vm.patientList.activate
                 },
                 {
                     route: '#/patient/:id',
-                    callback: vm.second.activate
+                    callback: vm.patientDetail.activate
                 }
             ],
             registerRoutes = function () {
