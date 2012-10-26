@@ -8,6 +8,7 @@
 *obj
 *.user
 *.suo
+*.sdf
 _ReSharper.*
 *.sln.cache
 *Specifications.html
