@@ -13,7 +13,7 @@
             },
             removePatient = function (patient) {
                 if(dataservice.deletePatient(patient.id())) {
-                    patients.pop(patient);
+                    patients.remove(patient);
                 }
             },
             activate = function (options) {

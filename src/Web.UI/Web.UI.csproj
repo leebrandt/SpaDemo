@@ -135,6 +135,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\SoftKittyVet.sdf" />
     <Content Include="Global.asax" />
+    <Content Include="Images\clear.png" />
+    <Content Include="Images\search.png" />
     <Content Include="Scripts\app\binder.js" />
     <Content Include="Scripts\app\dataservice.js" />
     <Content Include="Scripts\app\m.js" />

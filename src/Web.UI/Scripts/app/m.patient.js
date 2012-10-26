@@ -17,12 +17,23 @@
                 if (!self.checkoutTime) {
                     throw new Error('This patient has not checked out.');
                 }
-                return moment(self.checkoutTime).subtract(self.checkinTime).format('h:mm:ss');
+                return moment(self.checkoutTime).diff(self.checkinTime, 'seconds', true) + ' seconds';
 
             });
             return self;
         };
-        
+
+
+        Patient.prototype.fromJSON = function (value) {
+            this.id(value.Id);
+            this.name(value.Name);
+            this.age(value.Age);
+            this.species(value.Species);
+            this.complaint(value.Complaint);
+            this.checkinTime(value.CheckInTime);
+            this.checkoutTime(value.CheckOutTime);
+            return this;
+        };
 
         return Patient;
     });

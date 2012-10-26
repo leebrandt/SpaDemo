@@ -2,5 +2,24 @@
     <h2 data-bind="text:name"></h2>
     <div>Patient Details</div>
     <hr/>
-
+    <div>
+        <label>Age</label>
+        <span data-bind="text:age"></span>
+    </div>
+    
+    <div>
+        <label>Species</label>
+        <span data-bind="text:species"></span>
+    </div>
+    
+    <div>
+        <label>Complaint</label>
+        <span data-bind="text:complaint"></span>
+    </div>
+    
+    <div>
+        <label>Checked In At</label>
+        <span data-bind="text:moment(checkinTime()).format('h:mm:ss a')"></span>
+    </div>
+    
 </div>

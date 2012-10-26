@@ -3,15 +3,35 @@ $accentcolor: #036;
 
 * {
 	padding: 0px; margin: 0px;
+	font-family: Arial, Helvetica, Sans-Serif;
 }
 
 body {
 	background-color: $maincolor;
-	color: $accentcolor;
+}
+
+button {
+	padding: .25em;
+	margin: .25em;
+}
+
+a {
+	padding: 2px 2px;
+	text-decoration: none;
+	&:hover { 
+		cursor: pointer;
+	}
 }
 
 // Hide all views by default
 div.view { display: none; }
+
+header {
+	padding: .5em .1em;
+	font-size: 2em;
+	font-weight: bold;
+	font-family: Georgia;
+}
 
 #page {
 	padding: 1em;
@@ -40,25 +60,38 @@ div.view { display: none; }
 }
 
 #patient-check-in {
-	width: 255px;
+	width: 300px;
 	margin-top: 50px;
 	margin-left: 100px;
 	.header {
 		font-weight: bold;
+		font-size: 1.1em;
 		text-align: center;
 	}
 	div{
 		margin: 4px;
 	}
 	label {
+		padding-right: 4px;
 		display: block;
 		float: left;
 		text-align: right;
-		width: 68px;
+		width: 80px;
+		font-weight: bold;
 	}
+	input {
+		width: 200px;
+	}
+	textarea{ width: 202px; }
 	button{
 		float: right;
 	}
+}
+
+#second-page-view {
+	div { padding: 8px; }
+	label { font-weight: bold; }
+
 }
 
 

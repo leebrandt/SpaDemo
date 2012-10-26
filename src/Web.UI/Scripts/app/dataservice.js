@@ -12,15 +12,7 @@
                     async: false,
                     success: function (data) {
                         $.each(data, function (index, value) {
-                            var p = new m.Patient();
-                            p.id(value.Id);
-                            p.name(value.Name);
-                            p.age(value.Age);
-                            p.species(value.Species);
-                            p.complaint(value.Complaint);
-                            p.checkinTime(value.CheckInTime);
-                            p.checkoutTime(value.CheckOutTime);
-                            patients.push(p);
+                            patients.push(new m.Patient().fromJSON(value));
                         });
                     }
                 });
