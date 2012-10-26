@@ -1,30 +1,48 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using Web.UI.Data;
 using Web.UI.Models;
 
 namespace Web.UI.Controllers
 {
     public class PatientController : ApiController
     {
+        SoftKittyDataContext db;
+
+        public PatientController()
+        {
+            db = new SoftKittyDataContext();
+        }
+
         // GET api/patient
         public IEnumerable<Patient> Get()
         {
-            return new List<Patient>
-                       {
-                           new Patient {Id = 1, Name = "Bobo"},
-                           new Patient {Id = 2, Name = "Rex"}
-                       };
+            return db.Patients;
         }
 
         // GET api/patient/5
         public Patient Get(int id)
         {
-            return new Patient {Id = id, Name = "Rex"};
+            return db.Patients.SingleOrDefault(pet => pet.Id == id);
         }
 
         // POST api/patient
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]Patient patient)
         {
+            try
+            {
+                db.Patients.Add(patient);
+                db.SaveChanges();
+                return Request.CreateResponse(HttpStatusCode.Created, patient);
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotModified, ex.Message);
+            }
         }
 
         // PUT api/patient/5
@@ -33,8 +51,19 @@ namespace Web.UI.Controllers
         }
 
         // DELETE api/patient/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                db.Patients.Remove(db.Patients.SingleOrDefault(p => p.Id == id));
+                db.SaveChanges();
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotModified, ex.Message);
+            }
+
         }
     }
 }

@@ -1,4 +1,4 @@
-// name: sammy
+// Name: sammy
 // version: 0.7.1
 
 // Sammy.js / http://sammyjs.org
@@ -10,7 +10,7 @@
       // AMD Anonymous Module
       define(['jquery'], factory);
     } else {
-      // No module loader (plain <script> tag) - put directly in global namespace
+      // No module loader (plain <script> tag) - put directly in global Namespace
       $.sammy = window.Sammy = factory($);
     }
   })(function($){
@@ -37,7 +37,7 @@
       loggers = [];
 
 
-  // `Sammy` (also aliased as $.sammy) is not only the namespace for a
+  // `Sammy` (also aliased as $.sammy) is not only the Namespace for a
   // number of prototypes, its also a top level method that allows for easy
   // creation/management of `Sammy.Application` instances. There are a
   // number of different forms for `Sammy()` but each returns an instance
@@ -154,9 +154,9 @@
     // Does not render functions.
     // For example. Given this Sammy.Object:
     //
-    //     var s = new Sammy.Object({first_name: 'Sammy', last_name: 'Davis Jr.'});
+    //     var s = new Sammy.Object({first_Name: 'Sammy', last_Name: 'Davis Jr.'});
     //     s.toHTML()
-    //     //=> '<strong>first_name</strong> Sammy<br /><strong>last_name</strong> Davis Jr.<br />'
+    //     //=> '<strong>first_Name</strong> Sammy<br /><strong>last_Name</strong> Davis Jr.<br />'
     //
     toHTML: function() {
       var display = "";
@@ -411,7 +411,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
 
     // The default template engine to use when using `partial()` in an
     // `EventContext`. `template_engine` can either be a string that
-    // corresponds to the name of a method/helper on EventContext or it can be a function
+    // corresponds to the Name of a method/helper on EventContext or it can be a function
     // that takes two arguments, the content of the unrendered partial and an optional
     // JS object that contains interpolation data. Template engine is only called/referred
     // to if the extension of the partial is null or unknown. See `partial()`
@@ -543,7 +543,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     //    is assumed to be 'any'.
     // * `path` A Regexp or a String representing the path to match to invoke this verb.
     // * `callback` A Function that is called/evaluated when the route is run see: `runRoute()`.
-    //    It is also possible to pass a string as the callback, which is looked up as the name
+    //    It is also possible to pass a string as the callback, which is looked up as the Name
     //    of a method on the application.
     //
     route: function(verb, path, callback) {
@@ -567,7 +567,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
         // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/lastIndex
         PATH_NAME_MATCHER.lastIndex = 0;
 
-        // find the names
+        // find the Names
         while ((path_match = PATH_NAME_MATCHER.exec(path)) !== null) {
           param_names.push(path_match[1]);
         }
@@ -637,7 +637,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
       return this;
     },
 
-    // A unique event namespace defined per application.
+    // A unique event Namespace defined per application.
     // All events bound with `bind()` are automatically bound within this space.
     eventNamespace: function() {
       return ['sammy-app', this.namespace].join('-');
@@ -687,7 +687,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     //
     // ### Arguments
     //
-    // * `name` The name of the event. Automatically prefixed with the `eventNamespace()`
+    // * `Name` The Name of the event. Automatically prefixed with the `eventNamespace()`
     // * `data` An optional Object that can be passed to the bound callback.
     // * `context` An optional context/Object in which to execute the bound callback.
     //   If no context is supplied a the context is a new `Sammy.EventContext`
@@ -836,7 +836,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     },
 
     // Helper extends the event context just like `helpers()` but does it
-    // a single method at a time. This is especially useful for dynamically named
+    // a single method at a time. This is especially useful for dynamically Named
     // helpers
     //
     // ### Example
@@ -857,8 +857,8 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     //
     // ### Arguments
     //
-    // * `name` The name of the method
-    // * `method` The function to be added to the prototype at `name`
+    // * `Name` The Name of the method
+    // * `method` The function to be added to the prototype at `Name`
     //
     helper: function(name, method) {
       this.context_prototype.prototype[name] = method;
@@ -951,7 +951,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
       $.each(this.APP_EVENTS, function(i, e) {
         app.bind(e, callback);
       });
-      // next, bind to listener names (only if they dont exist in APP_EVENTS)
+      // next, bind to listener Names (only if they dont exist in APP_EVENTS)
       $.each(this.listeners.keys(true), function(i, name) {
         if ($.inArray(name, app.APP_EVENTS) == -1) {
           app.bind(name, callback);
@@ -1029,9 +1029,9 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
           path_params.shift();
           // for each of the matches
           $.each(path_params, function(i, param) {
-            // if theres a matching param name
+            // if theres a matching param Name
             if (route.param_names[i]) {
-              // set the name to the match
+              // set the Name to the match
               params[route.param_names[i]] = _decode(param);
             } else {
               // initialize 'splat'
@@ -1269,7 +1269,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
 
     _getFormVerb: function(form) {
       var $form = $(form), verb, $_method;
-      $_method = $form.find('input[name="_method"]');
+      $_method = $form.find('input[Name="_method"]');
       if ($_method.length > 0) { verb = $_method.val(); }
       if (!verb) { verb = $form[0].getAttribute('method'); }
       if (!verb || verb == '') { verb = 'get'; }
@@ -1300,9 +1300,9 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
          fields = $form.serializeArray(),
          i;
        if (fields.length > 0) {
-         queryString = this._encodeFormPair(fields[0].name, fields[0].value);
+         queryString = this._encodeFormPair(fields[0].Name, fields[0].value);
          for (i = 1; i < fields.length; i++) {
-           queryString = queryString + "&" + this._encodeFormPair(fields[i].name, fields[i].value);
+           queryString = queryString + "&" + this._encodeFormPair(fields[i].Name, fields[i].value);
          }
        }
        return queryString;
@@ -1317,7 +1317,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
           form_fields = $form.serializeArray(),
           i;
       for (i = 0; i < form_fields.length; i++) {
-        params = this._parseParamPair(params, form_fields[i].name, form_fields[i].value);
+        params = this._parseParamPair(params, form_fields[i].Name, form_fields[i].value);
       }
       return params;
     },
@@ -1599,7 +1599,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     // ### Example
     //
     //      this.get('#/', function() {
-    //        this.render('mytemplate.template', {name: 'test'});
+    //        this.render('mytemplate.template', {Name: 'test'});
     //      });
     //
     render: function(location, data, callback, partials) {
@@ -1794,10 +1794,10 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
   //
   //       $.sammy(function() {
   //         // The context here is this Sammy.Application
-  //         this.get('#/:name', function() {
+  //         this.get('#/:Name', function() {
   //           // The context here is a new Sammy.EventContext
-  //           if (this.params['name'] == 'sammy') {
-  //             this.partial('name.html.erb', {name: 'Sammy'});
+  //           if (this.params['Name'] == 'sammy') {
+  //             this.partial('Name.html.erb', {Name: 'Sammy'});
   //           } else {
   //             this.redirect('#/somewhere-else')
   //           }
@@ -1846,7 +1846,7 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
       var context = this, engine_match;
       // if path is actually an engine function just return it
       if (_isFunction(engine)) { return engine; }
-      // lookup engine name by path extension
+      // lookup engine Name by path extension
       engine = (engine || context.app.template_engine).toString();
       if ((engine_match = engine.match(/\.([^\.\?\#]+)$/))) {
         engine = engine_match[1];
@@ -1874,10 +1874,10 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     //
     // ### Example
     //
-    //      // mytemplate.mustache <div class="name">{{name}}</div>
-    //      render('mytemplate.mustache', {name: 'quirkey'});
-    //      // sets the `content` to <div class="name">quirkey</div>
-    //      render('mytemplate.mustache', {name: 'quirkey'})
+    //      // mytemplate.mustache <div class="Name">{{Name}}</div>
+    //      render('mytemplate.mustache', {Name: 'quirkey'});
+    //      // sets the `content` to <div class="Name">quirkey</div>
+    //      render('mytemplate.mustache', {Name: 'quirkey'})
     //        .appendTo('ul');
     //      // appends the rendered content to $('ul')
     //
@@ -1891,10 +1891,10 @@ $.extend(Sammy.DefaultLocationProxy.prototype , {
     //
     // ### Example
     //
-    //      // mytemplate.mustache <div class="name">{{name}}</div>
-    //      renderEach('mytemplate.mustache', [{name: 'quirkey'}, {name: 'endor'}])
-    //      // sets the `content` to <div class="name">quirkey</div><div class="name">endor</div>
-    //      renderEach('mytemplate.mustache', [{name: 'quirkey'}, {name: 'endor'}]).appendTo('ul');
+    //      // mytemplate.mustache <div class="Name">{{Name}}</div>
+    //      renderEach('mytemplate.mustache', [{Name: 'quirkey'}, {Name: 'endor'}])
+    //      // sets the `content` to <div class="Name">quirkey</div><div class="Name">endor</div>
+    //      renderEach('mytemplate.mustache', [{Name: 'quirkey'}, {Name: 'endor'}]).appendTo('ul');
     //      // appends the rendered content to $('ul')
     //
     renderEach: function(location, name, data, callback) {

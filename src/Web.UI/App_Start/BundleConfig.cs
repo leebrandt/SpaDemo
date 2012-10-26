@@ -24,7 +24,8 @@ namespace Web.UI
                  .Include(
                     "~/scripts/lib/sammy-{version}.js", 
                     "~/Scripts/lib/knockout-{version}.js",
-                    "~/Scripts/lib/underscore.js"));
+                    "~/Scripts/lib/underscore.js",
+                    "~/Scripts/lib/moment.js"));
 
              bundles.Add(new ScriptBundle("~/bundles/app-scripts")
                  .IncludeDirectory("~/Scripts/app", "*.js", searchSubdirectories:true));

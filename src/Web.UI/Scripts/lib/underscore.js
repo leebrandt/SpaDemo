@@ -53,7 +53,7 @@
 
   // Export the Underscore object for **Node.js**, with
   // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object via a string identifier,
+  // the browser, add `_` as a global object via a string Identifier,
   // for Closure Compiler "advanced" mode.
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
@@ -243,7 +243,7 @@
 
   // Return the maximum element or (element-based computation).
   // Can't optimize arrays of integers longer than 65,535 elements.
-  // See: https://bugs.webkit.org/show_bug.cgi?id=80797
+  // See: https://bugs.webkit.org/show_bug.cgi?Id=80797
   _.max = function(obj, iterator, context) {
     if (!iterator && _.isArray(obj) && obj[0] === +obj[0] && obj.length < 65535) {
       return Math.max.apply(Math, obj);
@@ -697,10 +697,10 @@
   // Object Functions
   // ----------------
 
-  // Retrieve the names of an object's properties.
+  // Retrieve the Names of an object's properties.
   // Delegates to **ECMAScript 5**'s native `Object.keys`
   _.keys = nativeKeys || function(obj) {
-    if (obj !== Object(obj)) throw new TypeError('Invalid object');
+    if (obj !== Object(obj)) throw new TypeError('InvalId object');
     var keys = [];
     for (var key in obj) if (_.has(obj, key)) keys[keys.length] = key;
     return keys;
@@ -727,7 +727,7 @@
     return result;
   };
 
-  // Return a sorted list of the function names available on the object.
+  // Return a sorted list of the function Names available on the object.
   // Aliased as `methods`
   _.functions = _.methods = function(obj) {
     var names = [];
@@ -793,15 +793,15 @@
 
   // Internal recursive comparison function for `isEqual`.
   var eq = function(a, b, aStack, bStack) {
-    // Identical objects are equal. `0 === -0`, but they aren't identical.
-    // See the Harmony `egal` proposal: http://wiki.ecmascript.org/doku.php?id=harmony:egal.
+    // Identical objects are equal. `0 === -0`, but they aren't Identical.
+    // See the Harmony `egal` proposal: http://wiki.ecmascript.org/doku.php?Id=harmony:egal.
     if (a === b) return a !== 0 || 1 / a == 1 / b;
     // A strict comparison is necessary because `null == undefined`.
     if (a == null || b == null) return a === b;
     // Unwrap any wrapped objects.
     if (a instanceof _) a = a._wrapped;
     if (b instanceof _) b = b._wrapped;
-    // Compare `[[Class]]` names.
+    // Compare `[[Class]]` Names.
     var className = toString.call(a);
     if (className != toString.call(b)) return false;
     switch (className) {
@@ -817,7 +817,7 @@
       case '[object Date]':
       case '[object Boolean]':
         // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-        // millisecond representations. Note that invalid dates with millisecond representations
+        // millisecond representations. Note that invalId dates with millisecond representations
         // of `NaN` are not equivalent.
         return +a == +b;
       // RegExps are compared by their source patterns and flags.
@@ -975,7 +975,7 @@
     return this;
   };
 
-  // Keep the identity function around for default iterators.
+  // Keep the Identity function around for default iterators.
   _.identity = function(value) {
     return value;
   };
@@ -1023,7 +1023,7 @@
     };
   });
 
-  // If the value of the named property is a function then invoke it;
+  // If the value of the Named property is a function then invoke it;
   // otherwise, return it.
   _.result = function(object, property) {
     if (object == null) return null;
@@ -1043,8 +1043,8 @@
     });
   };
 
-  // Generate a unique integer id (unique within the entire client session).
-  // Useful for temporary DOM ids.
+  // Generate a unique integer Id (unique within the entire client session).
+  // Useful for temporary DOM Ids.
   var idCounter = 0;
   _.uniqueId = function(prefix) {
     var id = idCounter++;
@@ -1124,7 +1124,7 @@
       return render.call(this, data, _);
     };
 
-    // Provide the compiled function source as a convenience for precompilation.
+    // ProvIde the compiled function source as a convenience for precompilation.
     template.source = 'function(' + (settings.variable || 'obj') + '){\n' + source + '}';
 
     return template;

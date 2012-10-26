@@ -11,15 +11,36 @@ div.view {
 
 #page {
   padding: 1em; }
+  #page footer {
+    clear: both;
+    padding: 8px; }
 
-#main-navigation {
+#patient-list {
+  padding: 8px;
   list-style-type: none; }
-  #main-navigation li {
-    display: inline;
-    background-color: #CCC;
-    padding: .25em; }
-    #main-navigation li:hover {
-      background-color: #003366; }
-      #main-navigation li:hover a {
-        color: #FFF; }
+  #patient-list li {
+    clear: both; }
+    #patient-list li span {
+      display: block;
+      float: left;
+      width: 100px; }
+    #patient-list li.header {
+      font-weight: bold; }
+
+#patient-check-in {
+  width: 255px;
+  margin-top: 50px;
+  margin-left: 100px; }
+  #patient-check-in .header {
+    font-weight: bold;
+    text-align: center; }
+  #patient-check-in div {
+    margin: 4px; }
+  #patient-check-in label {
+    display: block;
+    float: left;
+    text-align: right;
+    width: 68px; }
+  #patient-check-in button {
+    float: right; }
 

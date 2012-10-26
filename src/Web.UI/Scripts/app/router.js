@@ -9,7 +9,7 @@
                     callback: vm.patientList.activate
                 },
                 {
-                    route: '#/patient/:id',
+                    route: '#/patient/:Id',
                     callback: vm.patientDetail.activate
                 }
             ],
