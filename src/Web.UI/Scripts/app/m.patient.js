@@ -8,6 +8,7 @@
             self.age = ko.observable();
             self.species = ko.observable();
             self.complaint = ko.observable();
+            self.isEmergency = ko.observable();
             self.checkinTime = ko.observable();
             self.checkoutTime = ko.observable();
             self.visitLength = ko.computed(function () {
@@ -30,6 +31,7 @@
             this.age(value.Age);
             this.species(value.Species);
             this.complaint(value.Complaint);
+            this.isEmergency(value.IsEmergency);
             this.checkinTime(value.CheckInTime);
             this.checkoutTime(value.CheckOutTime);
             return this;

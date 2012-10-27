@@ -1,11 +1,11 @@
 ﻿define('vm.patient-detail',
-    ['jquery', 'ko', 'presenter', 'dataservice'],
-    function ($, ko, presenter, dataservice) {
+    ['jquery', 'ko', 'presenter', 'db.patients'],
+    function ($, ko, presenter, db) {
         var
             viewId = '#second-page-view',
             patient = ko.observable(),
             activate = function (options) {
-                patient(dataservice.getPatientById(options.Id));
+                patient(db.getById(options.Id));
                 presenter.showView(viewId);
             };
         return {

@@ -1,9 +1,9 @@
 ﻿define('bootstrapper',
-    ['jquery', 'binder', 'router', 'dataservice'],
-    function ($, binder, router, dataservice) {
+    ['jquery', 'binder', 'router', 'db.patients'],
+    function ($, binder, router, patients) {
         var
             run = function () {
-                $.when(dataservice.primeData())
+                $.when(patients.getAll())
                     .done(binder.bind)
                     .done(router.registerRoutes);
             };

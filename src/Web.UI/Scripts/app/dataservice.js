@@ -3,68 +3,41 @@
     function($, ko, m) {
 
         var
-            patients = [],
-            primeData = function () {
+            get = function (resourceUrl, callbacks) {
                 $.ajax({
-                    url: '/api/patient',
+                    url: resourceUrl,
                     type: 'GET',
                     dataType: 'json',
                     async: false,
-                    success: function (data) {
-                        $.each(data, function (index, value) {
-                            patients.push(new m.Patient().fromJSON(value));
-                        });
-                    }
+                    success: callbacks.success,
+                    error: callbacks.error
                 });
             },
-            getPatients = function () {
-                return patients;
-            },
-            getPatientById = function (id) {
-                return _.find(patients, function (p) {
-                    return p.id() == id;
-                });
-            },
-            addPatient = function (patient) {
+            add = function (resourceUrl, data, callbacks) {
                 $.ajax({
-                    url: '/api/patient',
+                    url: resourceUrl,
                     type: 'POST',
                     contentType: "application/json; charset=utf-8",
-                    data: ko.toJSON(patient),
-                    success: function (data) {
-                        console.log(data);
-                        patient.id(data.Id);
-                    },
-                    error: function (jqXHR, status, exception) {
-                        var response = $.parseJSON(jqXHR.responseText);
-                        alert(response);
-                        return false;
-                    }
+                    data: ko.toJSON(data),
+                    success: callbacks.success,
+                    error: callbacks.error
                 });
-                return patient;
             },
-            deletePatient = function (id) {
+            del = function (resourceUrl, callbacks) {
                 $.ajax({
-                    url: '/api/patient/' + id,
+                    url: resourceUrl,
                     type: 'DELETE',
-                    success: function () {
-                        alert('removed patient');
-                    },
-                    error: function (jqXHR, status, exception) {
-                        var response = $.parseJSON(jqXHR.responseText);
-                        alert(response.Message);
-                        return false;
-                    }
+                    success: callbacks.success,
+                    error: callbacks.error
                 });
                 return true;
             };
+
         
         return {
-            primeData: primeData,
-            getPatients: getPatients,
-            getPatientById: getPatientById,
-            addPatient: addPatient,
-            deletePatient: deletePatient
+            get: get,
+            add: add,
+            del: del
         };
 
     });

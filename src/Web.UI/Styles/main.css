@@ -35,15 +35,19 @@ header {
 
 #patient-list {
   padding: 8px;
-  list-style-type: none; }
+  list-style-type: none;
+  width: 450px; }
   #patient-list li {
-    clear: both; }
+    clear: both;
+    padding: 4px; }
     #patient-list li span {
       display: block;
       float: left;
       width: 100px; }
     #patient-list li.header {
       font-weight: bold; }
+    #patient-list li.emergency {
+      background-color: #F99; }
 
 #patient-check-in {
   width: 300px;
@@ -64,6 +68,8 @@ header {
     font-weight: bold; }
   #patient-check-in input {
     width: 200px; }
+  #patient-check-in input[type="checkbox"] {
+    width: 20px; }
   #patient-check-in textarea {
     width: 202px; }
   #patient-check-in button {

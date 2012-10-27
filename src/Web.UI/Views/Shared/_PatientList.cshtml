@@ -8,36 +8,39 @@
             <span>Checked In</span>
         </li>
         <!-- ko foreach:patients -->
-        <li class="patient">
+        <li class="patient" data-bind="css:{ emergency: isEmergency }">
             <span data-bind="text:name"></span>
             <span data-bind="text:age"></span>
             <span data-bind="text:species"></span>
             <span data-bind="text:moment(checkinTime()).format('h:mm:ss a')"></span>
             <a data-bind="attr: { href: '#/patient/'+id() }" title="view">
-                <img src="/Images/search.png"/>
+                <img src="/Images/search.png" />
             </a>
             <a data-bind="click: $parent.removePatient.bind($data)" title="remove">
-                <img src="/Images/clear.png"/>
+                <img src="/Images/clear.png" />
             </a>
         </li>
         <!-- /ko -->
     </ul>
-    
+
     <div id="patient-check-in" data-bind="with:newPatient">
         <div class="header">
             New Patient Check-In
         </div>
         <div>
-            <label>Name</label><input type="text" data-bind="value:name"/>
+            <label>Name</label><input data-bind="value:name" type="text" />
         </div>
         <div>
-            <label>Age</label><input type="text" data-bind="value:age"/>
+            <label>Age</label><input data-bind="value:age" type="text" />
         </div>
         <div>
-            <label>Species</label><input type="text" data-bind="value:species"/>
+            <label>Species</label><select data-bind="options: $parent.speciesList, value: species, optionsCaption:'Choose...'"></select>
         </div>
         <div>
             <label>Complaint</label><textarea data-bind="value:complaint"></textarea>
+        </div>
+        <div>
+            <input type="checkbox" data-bind="checked:isEmergency"/>This is an emergency!
         </div>
         <button data-bind="click:$root.addPatient">Check In</button>
     </div>

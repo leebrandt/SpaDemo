@@ -46,7 +46,7 @@ namespace Web.UI.Controllers
         }
 
         // PUT api/patient/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Patient patient)
         {
         }
 
